@@ -26,7 +26,7 @@ export default {
     })
   },
   created() {
-    this.showContact(this.contact.id);
+    this.showContact(this.$route.params.id);
   },
   methods: {
     ...mapActions({
@@ -35,7 +35,7 @@ export default {
     deleteContact(id) {
       this.$store.dispatch('deleteContact', id)
         .then((response) => {
-          console.log("Contact deleted", response)
+          alert("Contact deleted", response)
           this.$store.dispatch('showContacts')
           this.$router.push({ name: 'ContactList' })
         })

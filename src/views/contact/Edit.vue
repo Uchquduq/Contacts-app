@@ -32,8 +32,8 @@ export default {
   computed: {
     ...mapGetters({ user: 'contact' })
   },
-  created() {
-    this.showContact(this.contact.id).then((data) => {
+  mounted() {
+    this.showContact(this.$route.params.id).then((data) => {
       console.log(data)
     })
   },
@@ -43,11 +43,17 @@ export default {
     ]),
     update() {
       const data = {
+        id: this.user.id,
         name: this.user.name,
         email: this.user.email,
         phone: this.user.phone
       }
-      return this.$store.dispatch('updateContact', this.user.id, data).then(con => console.log(con))
+      this.$store.dispatch('updateContact', data)
+        .then(con => {
+          console.log(con)
+          alert(`Contact: ${this.user.name} succesfully updated!`)
+          this.$router.push({ name: 'ContactDetails' })
+        })
     }
   }
 };

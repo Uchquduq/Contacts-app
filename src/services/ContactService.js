@@ -22,7 +22,7 @@ export default {
   deleteContact(id) {
     return apiClient.delete('/contacts/' + id)
   },
-  updateContact(id, contact) {
-    return apiClient.patch('/contacts/' + id, contact)
+  updateContact(contact) {
+    return apiClient.patch('/contacts/' + contact.id, contact)
   }
 }
