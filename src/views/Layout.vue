@@ -39,16 +39,4 @@ a {
 a.router-link-exact-active {
   color: #060606;
 }
-
-.history button {
-  margin-left: 1px;
-  background: #ffffff;
-  color: #747474;
-  min-width: 70px;
-  border: 1px solid rgb(220, 220, 220);
-}
-
-button:hover {
-  background: #dfdfdf;
-}
 </style>

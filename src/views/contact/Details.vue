@@ -1,5 +1,5 @@
 <template>
-  <li class="flex items-center lh-copy pa3 ph0-l mt2 b--black-10">
+  <li class="flex items-center lh-copy pa4 ph0-l mt3 b--black-10">
     <img class="w2 h2 w3-ns h3-ns br-100"
       src="https://cdn2.iconfinder.com/data/icons/avatar-profile/476/profile_avatar_contact_account_user_default-512.png" />
     <div class="pl3 flex-auto">
@@ -9,8 +9,9 @@
     <div>
       <a href="tel:" class="f6 link blue hover-dark-gray">{{ user.number }}</a>
     </div>
-    <div class="pl3 flex-auto">
-      <button @click="deleteContact(user.id)" class="">Delete</button>
+    <div>
+      <button @click="deleteContact(user.id)"
+        class="f5 no-underline gray bg-white hover-bg-black hover-white inline-flex items-center pr3 pl3 pt2 pb2 ba border-box">Delete</button>
     </div>
   </li>
 </template>
