@@ -19,7 +19,9 @@
         </div>
       </fieldset>
       <div class="">
-        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Save">
+        <input
+          class="f5 no-underline gray bg-white hover-bg-black hover-white inline-flex items-center pr3 pl3 pt2 pb2 ba"
+          type="submit" value="Save">
       </div>
     </form>
   </div>
