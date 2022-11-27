@@ -1,6 +1,6 @@
 <template>
-  <li class="flex items-center lh-copy pa4 ph0-l mt3 b--black-10">
-    <img class="w2 h2 w3-ns h3-ns br-100"
+  <li class="flex items-center lh-copy ph0-l mt4 b--black-10">
+    <img class="w2 h2 w3-ns h3-ns br-100 mr3"
       src="https://cdn2.iconfinder.com/data/icons/avatar-profile/476/profile_avatar_contact_account_user_default-512.png" />
     <div class="pl3 flex-auto">
       <span class="f6 db black-70">{{ user.name }}</span>

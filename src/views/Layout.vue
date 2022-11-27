@@ -1,7 +1,7 @@
 <template>
   <div class="mw6 center pa3 sans-serif">
     <div v-if="contact">
-      <h1>{{ contact.name }}</h1>
+      <h1 class="normal">{{ contact.name }}</h1>
       <div id="nav">
         <router-link :to="{ name: 'ContactDetails' }">Details</router-link> |
         <router-link :to="{ name: 'ContactEdit' }">Edit</router-link>
@@ -31,7 +31,7 @@ export default {
 
 <style lang="css">
 a {
-  font-weight: bold;
+  font-weight: normal;
   color: #a1a1a1;
   text-decoration: none;
 }
