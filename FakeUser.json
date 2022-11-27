@@ -1,0 +1,11 @@
+{
+  "id":10,
+  "name": "Janella Hetkins",
+  "phone": "+9989321312312",
+  "address": "6595 Craig Keys Suite 695",
+  "favorites": {
+    "colors": ["Green", "Blue", "Red"]
+  },
+  "created_at": "2018-11-12T19:40:44",
+  "updated_at": "2018-11-12T19:40:44"
+}

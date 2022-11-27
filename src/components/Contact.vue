@@ -1,5 +1,6 @@
 <template>
-  <router-link class="contact-link" :to="{ name: 'ContactDetails', params: { id: contact.id } }">
+  <router-link class="contact-link" @click="this.$store.dispatch('showContact', contact.id)"
+    :to="{ name: 'ContactDetails', params: { id: contact.id } }">
     <li class="flex items-center lh-copy pa3 ph0-l bb b--black-10">
       <img class="w2 h2 w3-ns h3-ns br-100"
         src="https://cdn2.iconfinder.com/data/icons/avatar-profile/476/profile_avatar_contact_account_user_default-512.png" />

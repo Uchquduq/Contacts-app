@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="measure center" @submit.prevent="updateContact">
+    <form class="measure center" @submit.prevent="update()">
       <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
         <div class="mt3">
           <label class="db fw6 lh-copy f6" for="name">Name</label>
@@ -29,11 +29,8 @@
 import { mapGetters, mapActions } from 'vuex';
 export default {
   name: "ContactEdit",
-  props: ["contact"],
   computed: {
-    ...mapGetters({
-      user: 'contact'
-    })
+    ...mapGetters({ user: 'contact' })
   },
   created() {
     this.showContact(this.contact.id).then((data) => {
@@ -43,8 +40,15 @@ export default {
   methods: {
     ...mapActions([
       'showContact',
-      'updateContact'
     ]),
+    update() {
+      const data = {
+        name: this.user.name,
+        email: this.user.email,
+        phone: this.user.phone
+      }
+      return this.$store.dispatch('updateContact', this.user.id, data).then(con => console.log(con))
+    }
   }
 };
 </script>

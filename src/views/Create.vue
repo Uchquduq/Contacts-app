@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="measure center" @submit.prevent="createContact">
+    <form class="measure center" @submit.prevent="create">
       <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
         <div class="mt3">
           <label class="db fw6 lh-copy f6" for="name">Name</label>
@@ -26,11 +26,8 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "ContactCreate",
-  props: ["contact"],
   data: () => ({
     user: {
       name: null,
@@ -39,22 +36,10 @@ export default {
     }
   }),
   methods: {
-    async createContact() {
-      try {
-        const user = await axios.post(
-          "http://localhost:3000/contacts",
-          {
-            name: this.user.name,
-            email: this.user.email,
-            phone: this.user.phone
-          }
-        );
-        this.$router.push({ name: 'ContactList' })
-        console.log(user.data);
-        alert("User updated!");
-      } catch (e) {
-        console.log(e);
-      }
+    create() {
+      this.$store.dispatch('createContact', this.user)
+      this.$router.push({ name: 'ContactList' })
+      alert("User updated!");
     },
   }
 };

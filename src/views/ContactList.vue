@@ -6,11 +6,11 @@
           aria-describedby="name-desc" placeholder="Search" v-model="search">
       </div>
     </form>
-    <p v-if="state == 'error'" class="orange">{{ error }}</p>
-    <ul class="list pl0 mt0 measure center" v-else-if="state == 'ready'">
+
+    <ul class="list pl0 mt0 measure center">
       <Contact v-for="contact in contacts" :key="contact.id" :contact="contact" />
     </ul>
-    <p v-else-if="state == 'loading'">Loading contacts...</p>
+
   </div>
 </template>
 
@@ -43,7 +43,6 @@ export default {
   },
   created() {
     this.$store.dispatch('showContacts')
-      .then(() => this.state = 'ready')
   },
 };
 </script>

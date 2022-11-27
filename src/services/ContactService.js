@@ -16,10 +16,13 @@ export default {
   getContacts() {
     return apiClient.get('/contacts')
   },
+  postContact(contact) {
+    return apiClient.post('/contacts', contact)
+  },
   deleteContact(id) {
     return apiClient.delete('/contacts/' + id)
   },
-  updateContact(id, data) {
-    return apiClient.patch('/contacts/' + id, data)
+  updateContact(id, contact) {
+    return apiClient.patch('/contacts/' + id, contact)
   }
 }

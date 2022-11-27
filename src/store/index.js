@@ -20,27 +20,42 @@ export default createStore({
     },
     SET_CONTACT(state, contact) {
       state.contact = contact
+    },
+    ADD_CONTACT(state, contact) {
+      state.contacts.push(contact)
     }
   },
   actions: {
     showContacts({ commit }) {
-      return ContactService.getContacts().then(response => {
+      ContactService.getContacts().then(response => {
         commit('SET_CONTACTS', response.data)
-        console.log(response.data)
       }).catch(error => {
         throw error
       })
     },
     showContact({ commit }, id) {
-      return ContactService.getContact(id).then(response => commit('SET_CONTACT', response.data))
+      ContactService.getContact(id).then(response => commit('SET_CONTACT', response.data))
+    },
+    createContact({ commit }, contact) {
+      ContactService.postContact(contact)
+        .then(
+          commit('ADD_CONTACT', contact)
+        )
+        .catch(error => {
+          throw (error);
+        })
     },
     deleteContact({ commit }, id) {
-      return ContactService.deleteContact(id).then(response => commit('SET_CONTACT', response.data))
+      ContactService.deleteContact(id).then(response => commit('SET_CONTACT', response.data))
     },
-    updateContact({ commit }, id, data) {
-      return ContactService.putch(id, data).then(response => {
+    async updateContact({ commit }, id, data) {
+      try {
+        const response = await ContactService.updateContact(id, data)
         commit('SET_CONTACT', response.data)
-      })
+        console.log(response.data)
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 })

@@ -10,7 +10,7 @@
       <a href="tel:" class="f6 link blue hover-dark-gray">{{ user.number }}</a>
     </div>
     <div class="pl3 flex-auto">
-      <button @click="deleteContact" class="">Delete</button>
+      <button @click="deleteContact(user.id)" class="">Delete</button>
     </div>
   </li>
 </template>
@@ -31,8 +31,15 @@ export default {
   methods: {
     ...mapActions({
       showContact: "showContact",
-      deleteContact: "deleteContact"
     }),
+    deleteContact(id) {
+      this.$store.dispatch('deleteContact', id)
+        .then((response) => {
+          console.log("Contact deleted", response)
+          this.$store.dispatch('showContacts')
+          this.$router.push({ name: 'ContactList' })
+        })
+    }
   }
 };
 </script>
